@@ -171,13 +171,15 @@ export default defineConfig({
   ssr: {
     external: ["express"],
   },
-  root: path.resolve(import.meta.dirname, "client"),
   publicDir: path.resolve(import.meta.dirname, "client", "public"),
   preview: {
     host: "0.0.0.0",
     port: 3000,
   },
   build: {
+    rollupOptions: {
+      input: path.resolve(import.meta.dirname, "index.html"),
+    },
     outDir: path.resolve(import.meta.dirname, "dist/public"),
     emptyOutDir: true,
     sourcemap: false,
